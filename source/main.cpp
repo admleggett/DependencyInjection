@@ -9,7 +9,7 @@ int main()
     //create a concrete PersonRepository
     PersonRepository personRepository = PersonRepository();
     //inject into the service via ctor
-    PersonService personService = PersonService(personRepository);
+    PersonService personService = PersonService(std::make_unique<PersonRepository>(personRepository));
     //get the list of persons from the service
     std::vector<Person> persons = personService.getAllPersons();
     //print them out

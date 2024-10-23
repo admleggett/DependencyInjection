@@ -21,16 +21,22 @@ protected:
         // Code here will be called immediately after each test (right before the destructor).
     }
 
-    MockPersonRepository mockRepository;
-    PersonService service{mockRepository};
+
 };
 
 
 TEST_F(PersonServiceTest, GetAllPersons) {
+
     //message to console running this test method
     std::cout << "Running test PersonServiceTest.GetAllPersons" << std::endl;
+    //MockPersonRepository mockRepository;
+    std::unique_ptr<MockPersonRepository> mockRepository(new MockPersonRepository());
+
+
     std::vector<Person> persons = { Person("John Doe", 25), Person("Jane Doe", 27) };
-    EXPECT_CALL(mockRepository, findAll()).WillOnce(::testing::Return(persons));
+    EXPECT_CALL(*mockRepository, findAll()).WillOnce(::testing::Return(persons));
+
+    PersonService service(std::move(mockRepository));
     auto result = service.getAllPersons();
     EXPECT_EQ(result.size(), 2);
     EXPECT_EQ(result[0].getName(), "John Doe");
