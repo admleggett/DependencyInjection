@@ -8,7 +8,7 @@ PersonRepository::PersonRepository() {
 PersonRepository::~PersonRepository() {
 }
 
-void PersonRepository::save(Person person) {
+void PersonRepository::save(Person& person) {
     //output saving message to console
     std::cout << "Saving person to database" << std::endl;
 }

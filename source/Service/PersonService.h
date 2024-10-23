@@ -7,12 +7,12 @@
 class PersonService : public IPersonService {
   public:
     PersonService();
-    PersonService(PersonRepository personRepository);
+    PersonService(IPersonRepository& personRepository);
     ~PersonService();
     void setPerson(Person person);
     std::vector<Person> getAllPersons();
   private:
-    PersonRepository personRepository;
+    IPersonRepository& personRepository;
 
 };
 
