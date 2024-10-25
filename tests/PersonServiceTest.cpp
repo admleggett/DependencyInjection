@@ -30,7 +30,7 @@ TEST_F(PersonServiceTest, GetAllPersons) {
     //message to console running this test method
     std::cout << "Running test PersonServiceTest.GetAllPersons" << std::endl;
     //MockPersonRepository mockRepository;
-    std::unique_ptr<MockPersonRepository> mockRepository(new MockPersonRepository());
+    std::unique_ptr<MockPersonRepository> mockRepository = std::make_unique<MockPersonRepository>();
 
 
     std::vector<Person> persons = { Person("John Doe", 25), Person("Jane Doe", 27) };

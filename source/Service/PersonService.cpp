@@ -13,9 +13,7 @@ PersonService::PersonService(std::unique_ptr<IPersonRepository> personRepository
 
 }
 
-PersonService::~PersonService() {
-
-}
+PersonService::~PersonService() = default;
 
 void PersonService::setPerson(Person person) {
     this->personRepository->save(person);

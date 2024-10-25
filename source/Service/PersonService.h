@@ -3,14 +3,16 @@
 #include "IPersonService.h"
 #include "../Repository/PersonRepository.h"
 #include <vector>
+#include <memory>
+
 
 class PersonService : public IPersonService {
   public:
     PersonService();
-    PersonService(std::unique_ptr<IPersonRepository> personRepository);
-    ~PersonService();
-    void setPerson(Person person);
-    std::vector<Person> getAllPersons();
+    explicit PersonService(std::unique_ptr<IPersonRepository> personRepository);
+    ~PersonService() override;
+    void setPerson(Person person) override;
+    std::vector<Person> getAllPersons() override;
   private:
     std::unique_ptr<IPersonRepository> personRepository;
 

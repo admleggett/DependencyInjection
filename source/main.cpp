@@ -7,13 +7,12 @@ int main()
     std::cout << "Contacts" << std::endl;
 
     //create a concrete PersonRepository
-    PersonRepository personRepository = PersonRepository();
+    auto personRepository = PersonRepository();
     //inject into the service via ctor
-    PersonService personService = PersonService(std::make_unique<PersonRepository>(personRepository));
+    auto personService = PersonService(std::make_unique<PersonRepository>(personRepository));
     //get the list of persons from the service
-    std::vector<Person> persons = personService.getAllPersons();
     //print them out
-    for (Person person : persons) {
+    for (const std::vector<Person> persons = personService.getAllPersons(); Person person : persons) {
         std::cout << person.toString() << std::endl;
     }
 
