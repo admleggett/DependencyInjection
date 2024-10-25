@@ -12,11 +12,11 @@ I have created a simple Person/contacts example with model, service and reposito
 
 ## Classes
 
-1. Person - a simple model class with a name and an age.
-2. IPersonService - an interface class that provides the functionality to retrieve all people and add a person to the list of contacts.
-3. PersonService - a service class that implements IPersonService.
-4. IPersonRepository - an interface class that provides the functionality to retrieve all people and add a person to a datastore. This
-    interface is injected into the PersonService class via the constructor.
-5. PersonRepository - a repository class implements IPersonRepository.
-6. PersonServiceTest - a test class that uses GMock to test the PersonService class via a Mock implementation of IPersonRepository.
+1. `Person` - a simple model class with a name and an age.
+2. `IPersonService` - an interface class that provides the functionality to retrieve all people and add a person to the list of contacts.
+3. `PersonService` - a service class that implements `IPersonService`.
+4. `IPersonRepository` - an interface class that provides the functionality to retrieve all people and add a person to a datastore. This
+    interface is injected into the `PersonService` class via the constructor.
+5. `PersonRepository` - a repository class implements `IPersonRepository`.
+6. `PersonServiceTest` - a test class that uses GMock to test the `PersonService` class via a Mock implementation of `IPersonRepository`.
 
